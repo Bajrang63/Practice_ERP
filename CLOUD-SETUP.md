@@ -1,0 +1,3 @@
+# Cloud training preview
+Set ERP_ADMIN_PASSWORD (unique, at least 16 characters) in Vercel Preview environment; DATABASE_URL is provided by Neon. Use a separate Neon preview database/branch before testing. Login as admin. First successful login creates the account; changing the environment variable later does not reset it. No default password.
+This intermediate implementation stores a shared JSON workspace in PostgreSQL with optimistic concurrency. It is not a normalized ERP schema and does not yet enforce business transactions server-side. Admin can replace the entire workspace. Viewer accounts are read-only at the API but can see all records; do not use real business data. No production promotion until security and transaction tests pass.
